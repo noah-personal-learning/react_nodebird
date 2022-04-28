@@ -1,8 +1,11 @@
 import React from 'react';
+import AppLayout from '../components/AppLayout';
 
 const Profile = () => {
     return (
-        <div> 내 정보 </div>
+        <AppLayout>
+            <div>내 정보</div> 
+        </AppLayout>
     );
 }
 
