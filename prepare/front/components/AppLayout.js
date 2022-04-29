@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-import { Menu } from 'antd';
-import 'antd/dist/antd.css'
+import { Input, Menu, Row, Col } from 'antd';
+
 
 const AppLayout = ({children}) => {
     return (
@@ -15,10 +15,25 @@ const AppLayout = ({children}) => {
                     <Link href="/profile"><a>프로필</a></Link>
                 </Menu.Item>
                 <Menu.Item>
+                    <Input.Search enterButton style={{verticalAlign : "middle"}}/>
+                </Menu.Item>
+                <Menu.Item>
                     <Link href="/signup"><a>회원가입</a></Link>
                 </Menu.Item>
             </Menu>
-            {children}
+            {/* gutter : 여백 처리 컬럼 간의 사이의 합이 8px 만큼 padding 적용 */}
+            <Row gutter={8}>
+                <Col xs={24} md={6}>
+                    왼쪽 메뉴
+                </Col>
+                <Col xs={24} md={12}>
+                    {children}
+                </Col>
+                <Col xs={24} md={6}>
+                    <a href="https://github.com/ieunune/react_nodebird" target="_blank" rel="noreferrer noopener">GIT</a>
+                </Col>
+            </Row>
+            
         </div>
     );
 };

@@ -1,11 +1,18 @@
 import React from 'react';
 import AppLayout from '../components/AppLayout';
+import Head from 'next/head';
 
 const Home = () => {
     return (
-        <AppLayout>
+        <div>
+            <Head>
+                <meta charSet='UTF-8'/>
+                <title>Main : NordBird</title>
+            </Head>
+            <AppLayout>
             <div>Hello, Next JS</div>
-        </AppLayout>
+            </AppLayout>
+        </div>
     );
 }
 

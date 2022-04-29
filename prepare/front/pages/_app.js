@@ -1,10 +1,17 @@
 import React from 'react'
-import 'antd/dist/antd.css'
 import PropTypes from 'prop-types';
+import Head from 'next/head';
+import 'antd/dist/antd.css'
 
 const NordBird = ({ Component }) => {
     return (
-        <Component/>
+        <div>
+            <Head>
+                <meta charSet='UTF-8'/>
+                <title>NordBird</title>
+            </Head>
+            <Component/>
+        </div>
     );
 };
 

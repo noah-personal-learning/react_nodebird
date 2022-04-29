@@ -17,3 +17,8 @@
 ✔ 서버 사이드 렌더링  
 ✔ 검색 엔진 최적화  
 ✔ AWS 배포  
+
+npm 설치 목록
+react : npm install react, npm install react-dom
+nextJS : npm install next@9
+antd와 styled-componet : npm install andtd styled-components @ant-design/icons
