@@ -32,7 +32,7 @@ const AppLayout = ({children}) => {
                 </Menu.Item>
             </Menu>
             {/* gutter : 여백 처리 컬럼 간의 사이의 합이 8px 만큼 padding 적용 */}
-            <Row gutter={8}>
+            <Row gutter={16}>
                 <Col xs={24} md={6}>
                     {isLoggedIn ? <UserProfile setIsLoggedIn={setIsLoggedIn} /> : <LoginForm setIsLoggedIn={setIsLoggedIn} />}
                 </Col>

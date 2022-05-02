@@ -1,12 +1,13 @@
-import { Card, List, Button } from 'antd';
-import { StopOutlined } from '@ant-design/icons';
 import React from 'react';
 import PropTypes from 'prop-types';
+
+import { Card, List, Button } from 'antd';
+import { StopOutlined } from '@ant-design/icons';
 
 const FollowList = ({ header, data }) => {
   return (
     <List
-        style = {{margin : 20}}
+        style = {{ marginBottom : '20px' }}
         grid = {{ gutter : 4, xs : 2, md : 3}}
         size = "small"
         header = {<div>{header}</div>}
@@ -14,14 +15,14 @@ const FollowList = ({ header, data }) => {
         bordered
         dataSource={data}
         renderItem={(item) => (
-            <List.Item style={{ marginTop : 20}}>
+            <List.Item style={{ marginTop : '20px' }}>
                 <Card actions={[<StopOutlined key="stop" />]}>
                     <Card.Meta description={item.nickName} />
                 </Card>
             </List.Item>
         )}
     />
-  )
+  );
 }
 
 FollowList.propTypes = {

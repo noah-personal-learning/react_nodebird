@@ -7,13 +7,12 @@ import FollowList from '../components/FollowList';
 
 const Profile = () => {
 
-    const followerList  = [{nickname : 'A'}, {nickname : 'B'}, {nickname : 'C'}];
-    const followingList = [{nickname : 'D'}, {nickname : 'E'}, {nickname : 'F'}];
+    const followerList  = [{nickName : 'Noah'}, {nickName : 'Noah'}, {nickName : 'Noah'}, {nickName : 'Noah'}, {nickName : 'Noah'}, {nickName : 'Noah'}, {nickName : 'Noah'}, {nickName : 'Noah'}, {nickName : 'Noah'}];
+    const followingList = [{nickName : 'Noah'}, {nickName : 'Noah'}, {nickName : 'Noah'}, {nickName : 'Noah'}, {nickName : 'Noah'}, {nickName : 'Noah'}, {nickName : 'Noah'}, {nickName : 'Noah'}, {nickName : 'Noah'}];
 
     return (
         <div>
             <Head>
-                <meta charSet='UTF-8'/>
                 <title>내 프로필 : NordBird</title>
             </Head>
             <AppLayout>
