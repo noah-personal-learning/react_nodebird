@@ -2,6 +2,8 @@ import { Form, Input, Button } from 'antd';
 import React, { useCallback, useState } from 'react'
 import Link from 'next/link';
 import styled from 'styled-components';
+import propTypes from 'prop-types';
+import useInput from '../hooks/useInput';
 
 // 회원가입 라이브러리 폼 존재 추후에 적용하면 좋을 것 으로 보임.
 const ButtonWrapper = styled.div`
@@ -13,16 +15,21 @@ const FormWrapper = styled(Form)`
 `;
 
 const LoginForm = ({ setIsLoggedIn }) => {
-    const [id, setId] = useState('');
-    const [password, setPassword] = useState('');
-    // useCallBack : 컴포넌트 안에서 적용되는 함수는 useCallback을 사용한다.
-    const onChangeId = useCallback((e) => {
-        setId(e.target.value)
-    }, []);
 
-    const onChangePassword = useCallback((e) => {
-        setPassword(e.target.value)
-    }, []);
+    const [id, onChangeId] = useInput('');
+    const [password, onChangePassword] = useInput('');
+
+    // const [id, setId] = useState('');
+    // // useCallBack : 컴포넌트 안에서 적용되는 함수는 useCallback을 사용한다.
+    // const onChangeId = useCallback((e) => {
+    //     setId(e.target.value)
+    // }, []);
+
+    // 자주 반복되는 모듈들을 커스텀 훅을 사용하여 해결 가능.
+    // const [password, setPassword] = useState('');
+    // const onChangePassword = useCallback((e) => {
+    //     setPassword(e.target.value)
+    // }, []);
 
 
     const onSubmitForm = useCallback(() => {
@@ -65,4 +72,7 @@ const LoginForm = ({ setIsLoggedIn }) => {
     );
 };
 
+LoginForm.PropTypes = {
+    setIsLoggedIn: propTypes.func.isRequired
+}
 export default LoginForm;
