@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import AppLayout from '../components/AppLayout';
 import Head from 'next/head';
-import { Form, Input, Checkbox } from 'antd';
+import { Form, Input, Checkbox, Button } from 'antd';
 
 
 import Password from 'antd/lib/input/Password';
@@ -14,12 +14,23 @@ const ErrorMessage = styled.div`
 
 const SignUp = () => {
     
-    const [passwordCheck, setPasswordCheck] = useInput('');
-    const [passwordError, setPasswordError] = useInput(false);
+    const [passwordCheck, setPasswordCheck] = useState('');
+    const [passwordError, setPasswordError] = useState(false);
     
     const [id, onChangeId] = useInput('');
     const [nickName, onChangeNick] = useInput('');
     const [password, onChangePassword] = useInput('');
+
+    const [term, setTerm] = useState('');
+    const [termError, setTermError] = useState(false);
+    const onChangeTerm = useCallback(
+      (e) => {
+        setTerm(e.target.checked);
+        setTermError(false);
+      },
+      [],
+    )
+    
 
     // const [id, setId] = useState('');
     // const onChangeId = useCallback((e) => {
@@ -33,8 +44,9 @@ const SignUp = () => {
 
     // const [passwordCheck, setPasswordCheck] = useState('');
     const onChangePasswordCheck = useCallback((e) => {
-        setPasswordCheck(e.target.value);
         setPasswordError(e.target.value !== password);
+        setPasswordCheck(e.target.value);
+        
     }, [password]);
 
     // const [nickName, setNickname] = useState('');
@@ -42,9 +54,17 @@ const SignUp = () => {
     //     setNickname(e.target.value);
     // });
 
-    const onSubmit = useCallback((e) => {
+    const onSubmit = useCallback(() => {
+        console.log(password + " : " + passwordCheck)
 
-    }, []);
+        if (password !== passwordCheck) {
+            return setPasswordError(true);
+        }
+        if (!term) {
+            return setTermError(true);
+        }
+
+    }, [password, passwordCheck, term]);
 
     return (
         <AppLayout>
@@ -68,8 +88,13 @@ const SignUp = () => {
                     {passwordError && <ErrorMessage>비밀번호가 일치하지 않습니다.</ErrorMessage>}
                 </div>
                 <div>
-                    {/* <Checkbox name="user-term" checked={term} onChange={onChangeTerm}>노아 말을 잘 들을 것을 동의 합니다.</Checkbox>
-                    {termError && <ErrorMessage>비밀번호가 일치하지 않습니다.</ErrorMessage>} */}
+                    <Checkbox name="user-term" checked={term} onChange={onChangeTerm}>노아 말을 잘 들을 것을 동의 합니다.</Checkbox>
+                    {termError && <ErrorMessage>비밀번호가 일치하지 않습니다.</ErrorMessage>}
+                </div>
+                <div>
+                    <Button type='primary' htmlType='submit'>
+                        가입하기
+                    </Button>
                 </div>
             </Form>
             
