@@ -43,28 +43,32 @@ const SignUp = () => {
     // });
 
     // const [passwordCheck, setPasswordCheck] = useState('');
-    const onChangePasswordCheck = useCallback((e) => {
-        setPasswordError(e.target.value !== password);
-        setPasswordCheck(e.target.value);
-        
-    }, [password]);
+    const onChangePasswordCheck = useCallback(
+        (e) => {
+            setPasswordError(e.target.value !== password);
+            setPasswordCheck(e.target.value);
+        }, 
+        [password]
+    );
 
     // const [nickName, setNickname] = useState('');
     // const onChangeNick = useCallback((e) => {
     //     setNickname(e.target.value);
     // });
 
-    const onSubmit = useCallback(() => {
-        console.log(password + " : " + passwordCheck)
+    const onSubmit = useCallback(
+        () => {
+            console.log(password + " : " + passwordCheck)
 
-        if (password !== passwordCheck) {
-            return setPasswordError(true);
-        }
-        if (!term) {
-            return setTermError(true);
-        }
-
-    }, [password, passwordCheck, term]);
+            if (password !== passwordCheck) {
+                return setPasswordError(true);
+            }
+            if (!term) {
+                return setTermError(true);
+            }
+        },
+        [password, passwordCheck, term]
+    );
 
     return (
         <AppLayout>
