@@ -19,6 +19,15 @@
 ✔ AWS 배포  
 
 ### npm 설치 목록
-react : npm install react, npm install react-dom  
-nextJS : npm install next@9  
-antd와 styled-componet : npm install andtd styled-components @ant-design/icons  
+- react  
+  + npm install react, npm install react-dom  
+- nextJS  
+  + npm install next@9  
+- antd, styled-componet 
+  + npm install andtd styled-components @ant-design/icons   
+- nextJS와 redux간의 상호 작용  
+  + npm install next-redux-wrapper@6 --force  
+- redux 
+  + npm install redux
+- react와 redux의 상호작용 
+  - npm install react-redux 
