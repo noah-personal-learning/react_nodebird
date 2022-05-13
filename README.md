@@ -30,4 +30,6 @@
 - redux 
   + npm install redux
 - react와 redux의 상호작용 
-  - npm install react-redux 
+  + npm install react-redux 
+- 크롬 리덕스 플러그인 연동
+  + npm install redux-devtools-extension

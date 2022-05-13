@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 import useInput from '../hooks/useInput';
 import { useDispatch } from 'react-redux';
-import { loginAction } from '../reducers';
+import { loginAction } from '../reducers/user';
 
 // 회원가입 라이브러리 폼 존재 추후에 적용하면 좋을 것 으로 보임.
 const ButtonWrapper = styled.div`
