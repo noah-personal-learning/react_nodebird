@@ -3,7 +3,7 @@ export const initialState = {
         id : 1,
         User : {
             id : 1,
-            nickname : '노아',
+            nickName : '노아',
         },
         content : '첫 번째 게시글 #해시태그 #익스프레스',
         Images : [
@@ -20,13 +20,13 @@ export const initialState = {
         Comments : [
             {
                 User : {
-                    nickname : '네로'
+                    nickName : '네로'
                 },
                 Content : '댓글 테스트 1'
             },
             {
                 User : {
-                    nickname : '제로'
+                    nickName : '제로'
                 },
                 Content : '댓글 테스트 2'
             }
@@ -45,7 +45,7 @@ const dummyPost = {
     content : "테스트 더미 데이터",
     User : {
         id : 1,
-        nickname : '노아',
+        nickName : '노아',
     },
     Images : [],
     Comments : [],
