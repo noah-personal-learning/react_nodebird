@@ -33,3 +33,7 @@
   + npm install react-redux 
 - 크롬 리덕스 플러그인 연동
   + npm install redux-devtools-extension
+
+### 현재 진행중인 강의
+- Redux 연동하기
+  + 글로벌 스타일과 컴포넌트 폴더 구조. (09:18)
