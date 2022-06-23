@@ -19,7 +19,7 @@ import reducer from '../reducers';
 // prev.a === next.a => true
 const configureStore = () => {
 
-    const middlewares = [];
+    const middlewares = [thunkMiddleware];
 
     const enhancer = process.env.NODE_ENV === 'production'
         ? compose(applyMiddleware(...middlewares))
