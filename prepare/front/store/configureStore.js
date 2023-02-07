@@ -1,8 +1,14 @@
 import { createWrapper } from 'next-redux-wrapper';
 import { applyMiddleware, compose, legacy_createStore as createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import createSagaMiddleware from 'redux-saga';
 
 import reducer from '../reducers';
+
+const loggerMiddleware = ({ dispatch, getState }) => (next) => (action) => {
+    console.log(action);
+    return next(action);
+};
 
 // redux 설치
 // npm install next-redux-wrapper@6 --force // next js <-> redux 
@@ -19,7 +25,8 @@ import reducer from '../reducers';
 // prev.a === next.a => true
 const configureStore = () => {
 
-    const middlewares = [thunkMiddleware];
+    const sagaMiddleware = createSagaMiddleware();
+    const middlewares = [sagaMiddleware, loggerMiddleware];
 
     const enhancer = process.env.NODE_ENV === 'production'
         ? compose(applyMiddleware(...middlewares))
