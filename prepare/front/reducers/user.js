@@ -1,5 +1,7 @@
 export const initialState = {
+    isLoggingIn : false,
     isLoggedIn : false,
+    isLoggingOut : false,
     me : null,
     signUpData : {},
     loginData : {},
@@ -35,27 +37,43 @@ changeNickname('haon')
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case 'CHANGE_PASSWORD' :
+        case 'LOG_IN_REQUEST' :
             return {
                 ...state,
-                password : action.data,
-            };
-        case 'CHANGE_NICKNAME' :
-            return {
-                ...state,
-                name : action.data,
-            };
-        case 'LOGIN' :
-            return {
-                ...state,
-                isLoggedIn : true,
+                isLoggedIn: true,
                 me : action.data,
             };
-        case 'LOGOUT' :
+        case 'LOG_IN_SUCCESS' :
             return {
                 ...state,
+                isLoggedIn: true,
+                me : action.data,
+            };
+        case 'LOG_IN_FAILURE' :
+            return {
+                ...state,
+                isLoggedIn: false,
+                me : action.data,
+            };
+        case 'LOG_OUT_REQUEST' :
+            return {
+                ...state,
+                isLoggingOut: true,
+                me : null,
+            };
+        case 'LOG_OUT_SUCCESS' :
+            return {
+                ...state,
+                isLoggingOut: false,
                 isLoggedIn : false,
-                me : null
+                me : null,
+            };
+        case 'LOG_OUT_FAILURE' :
+            return {
+                ...state,
+                isLoggingOut : false,
+                isLoggedIn: false,
+                me : null,
             };
         default:
             return state;
