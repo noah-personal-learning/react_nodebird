@@ -1,4 +1,4 @@
-import { all, fork } from "redux-saga/effects";
+import { all, delay, fork, put, takeLatest } from "redux-saga/effects";
 
 
 function logInAPI(data) {
@@ -13,10 +13,12 @@ function logOutAPI(data) {
 // put == dispatch
 function* logIn(action) {
     try {
-        const result = yield call(logInAPI, action.data)
+        // const result = yield call(logInAPI, action.data)
+        console.log('user is in ?');
+        yield delay(1000);
         yield put({
             type: "LOG_IN_SUCCESS",
-            data: result.data
+            data: action.data
         });
     } catch (err) {
         yield put({
@@ -28,10 +30,10 @@ function* logIn(action) {
 
 function* logOut(action) {
     try {
-        const result = yield call(logOutAPI, action.data)
+        // const result = yield call(logOutAPI, action.data)
         yield put({
             type: "LOG_OUT_SUCCESS",
-            data: result.data
+            data: action.data
         });
     } catch (err) {
         yield put({
@@ -46,6 +48,7 @@ function* watchLogIn() {
     //     yield take("LOG_IN_REQUEST", logIn)
     // }
     // -> 직관적이지 않아 사용 잘 안함
+    console.log('watchLogin is in ?')
     yield takeLatest("LOG_IN_REQUEST", logIn)
 }
 
@@ -67,6 +70,6 @@ export default function* userSaga() {
     yield all([
         fork(watchLogIn),
         fork(watchLogOut)
-    ])
+    ]);
 
 }
