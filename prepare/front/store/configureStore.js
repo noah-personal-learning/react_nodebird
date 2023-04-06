@@ -4,6 +4,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import createSagaMiddleware from 'redux-saga';
 
 import reducer from '../reducers';
+import rootSaga from '../sagas';
 
 const loggerMiddleware = ({ dispatch, getState }) => (next) => (action) => {
     console.log(action);
@@ -33,10 +34,7 @@ const configureStore = () => {
         : composeWithDevTools(applyMiddleware(...middlewares))
 
     const store = createStore(reducer, enhancer);
-    store.dispatch({
-        type : 'CHANGE_PASSWORD',
-        data : '4321',
-    });
+    store.sagaTask = sagaMiddleware.run(rootSaga);
     return store;
 };
 

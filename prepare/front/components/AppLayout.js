@@ -30,8 +30,8 @@ const Global = createGlobalStyle`
 
 const AppLayout = ({children}) => {
 
-    const isLoggedIn = useSelector(
-        (state) => state.user.isLoggedIn
+    const {me} = useSelector(
+        (state) => state.user
     );
     // const [isLoggedIn, setIsLoggedIn] = useState(false);
     
@@ -54,7 +54,7 @@ const AppLayout = ({children}) => {
             {/* gutter : 여백 처리 컬럼 간의 사이의 합이 8px 만큼 padding 적용 */}
             <Row gutter={16}>
                 <Col xs={24} md={6}>
-                    {isLoggedIn ? <UserProfile /> : <LoginForm />}
+                    {me ? <UserProfile /> : <LoginForm />}
                 </Col>
                 <Col xs={24} md={12}>
                     {children}

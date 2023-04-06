@@ -7,8 +7,10 @@ import FollowList from '../components/FollowList';
 
 const Profile = () => {
 
-    const followerList  = [{nickName : 'Noah'}, {nickName : 'Noah'}, {nickName : 'Noah'}, {nickName : 'Noah'}, {nickName : 'Noah'}, {nickName : 'Noah'}, {nickName : 'Noah'}, {nickName : 'Noah'}, {nickName : 'Noah'}];
-    const followingList = [{nickName : 'Noah'}, {nickName : 'Noah'}, {nickName : 'Noah'}, {nickName : 'Noah'}, {nickName : 'Noah'}, {nickName : 'Noah'}, {nickName : 'Noah'}, {nickName : 'Noah'}, {nickName : 'Noah'}];
+    // const followerList  = [{nickName : 'Noah'}, {nickName : 'Noah'}, {nickName : 'Noah'}, {nickName : 'Noah'}, {nickName : 'Noah'}, {nickName : 'Noah'}, {nickName : 'Noah'}, {nickName : 'Noah'}, {nickName : 'Noah'}];
+    // const followingList = [{nickName : 'Noah'}, {nickName : 'Noah'}, {nickName : 'Noah'}, {nickName : 'Noah'}, {nickName : 'Noah'}, {nickName : 'Noah'}, {nickName : 'Noah'}, {nickName : 'Noah'}, {nickName : 'Noah'}];
+    const { me } = useSelector((state) => state.user);
+
 
     return (
         <div>
@@ -17,8 +19,8 @@ const Profile = () => {
             </Head>
             <AppLayout>
                 <NicknameEditForm/>
-                <FollowList header="팔로잉 목록" data={followingList} />
-                <FollowList header="팔로워 목록" data={followerList} />
+                <FollowList header="팔로잉" data={me.Followings} />
+                <FollowList header="팔로워" data={me.Followers} />
             </AppLayout>
         </div>
     );

@@ -19,37 +19,24 @@ const FormWrapper = styled(Form)`
 const LoginForm = () => {
 
     const dispatch = useDispatch();
-    const { isLoggingIn } = useSelector((state) => state.user)
-    const [id, onChangeId] = useInput('');
+    const { logInLoading } = useSelector((state) => state.user)
+    const [email, onChangeEmail] = useInput('');
     const [password, onChangePassword] = useInput('');
 
-    // const [id, setId] = useState('');
-    // // useCallBack : 컴포넌트 안에서 적용되는 함수는 useCallback을 사용한다.
-    // const onChangeId = useCallback((e) => {
-    //     setId(e.target.value)
-    // }, []);
-
-    // 자주 반복되는 모듈들을 커스텀 훅을 사용하여 해결 가능.
-    // const [password, setPassword] = useState('');
-    // const onChangePassword = useCallback((e) => {
-    //     setPassword(e.target.value)
-    // }, []);
-
-
     const onSubmitForm = useCallback(() => {
-        console.log(id, password);
-        dispatch(loginRequestAction({ id, password }));
-    }, [id, password]);
+        console.log(email, password);
+        dispatch(loginRequestAction({ email, password }));
+    }, [email, password]);
 
     return (
         <FormWrapper onFinish={onSubmitForm}>
             <div>
-                <label htmlFor="user-id">아이디</label>
+                <label htmlFor="user-email">이메일</label>
                 <br />
                 <Input 
-                    name="user-id" 
-                    value={id} 
-                    onChange={onChangeId} 
+                    name="user-email" 
+                    value={email} 
+                    onChange={onChangeEmail} 
                     required
                 />
             </div>
@@ -65,15 +52,23 @@ const LoginForm = () => {
                 />
             </div>
             <ButtonWrapper>
-                <Button type="primary" htmlType="submit" loading={isLoggingIn}>로그인</Button>
+                <Button type="primary" htmlType="submit" loading={logInLoading}>로그인</Button>
                 <Link href="/signup"><a><Button>회원가입</Button></a></Link>
             </ButtonWrapper>
-            <div>
-            </div>
-            <div>
-            </div>
         </FormWrapper>
     );
 };
 
 export default LoginForm;
+
+// const [id, setId] = useState('');
+// // useCallBack : 컴포넌트 안에서 적용되는 함수는 useCallback을 사용한다.
+// const onChangeId = useCallback((e) => {
+//     setId(e.target.value)
+// }, []);
+
+// 자주 반복되는 모듈들을 커스텀 훅을 사용하여 해결 가능.
+// const [password, setPassword] = useState('');
+// const onChangePassword = useCallback((e) => {
+//     setPassword(e.target.value)
+// }, []);
