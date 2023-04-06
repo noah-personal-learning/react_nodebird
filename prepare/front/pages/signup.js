@@ -84,7 +84,7 @@ const SignUp = () => {
                     {termError && <ErrorMessage>약관에 동의하지 않았습니다.</ErrorMessage>}
                 </div>
                 <div>
-                    <Button type='primary' htmlType='submit' loading='signUpLoading'></Button>
+                    <Button type='primary' htmlType='submit' loading='signUpLoading'>
                         가입하기
                     </Button>
                 </div>
