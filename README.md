@@ -37,6 +37,14 @@
   + npm install redux-thunk (thunk 보다 saga를 많이 씀)
 - redux saga
   + npm install redux-saga
+- eslint
+  + npm i -D babel-eslint eslint-config-airbnb eslint-plugin-import
+  + npm i -D eslint-plugin-react-hooks
+  + npm i -D eslint-plugin-jsx-a11y
+- shortId (유니크한 아이디 값을 만들기 위한 라이브러리)
+  + npm i shortid
+- faker (더미 데이터)
+  + npm i faker
 
 ### 현재 진행중인 강의
 - Redux 연동하기
